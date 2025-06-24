@@ -1,11 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
-<h2>{{ task.title if task else 'New Task' }}</h2>
-<form method="POST">
-    {{ form.hidden_tag() }}
-    <p>{{ form.title.label }}<br>{{ form.title(size=40) }}</p>
-    <p>{{ form.description.label }}<br>{{ form.description(cols=40, rows=5) }}</p>
-    <p>{{ form.status.label }}<br>{{ form.status() }}</p>
-    <p>{{ form.submit() }}</p>
-</form>
+<div class="form-container">
+    <h2>{{ task.title if task else 'New Task' }}</h2>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <p class="form-group">{{ form.title.label }}<br>{{ form.title(size=40, class_="form-input") }}</p>
+        <p class="form-group">{{ form.description.label }}<br>{{ form.description(cols=40, rows=5, class_="form-textarea") }}</p>
+        <p class="form-group">{{ form.status.label }}<br>{{ form.status(class_="form-select") }}</p>
+        <p class="form-group">{{ form.assigned_user.label }}<br>{{ form.assigned_user(class_="form-select") }}</p>
+        <p><input type="submit" class="form-button" value="Save Task"></p>
+    </form>
+</div>
 {% endblock %}

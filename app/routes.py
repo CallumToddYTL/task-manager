@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
 from flask_login import login_required, current_user
-from .models import Task, db
+from .models import Task, db, User
 from .forms import TaskForm
 
 main = Blueprint('main', __name__)
@@ -19,16 +19,22 @@ def dashboard():
 @login_required
 def new_task():
     form = TaskForm()
+    users = User.query.all()
+    form.assigned_user.choices = [(0, 'General (Unassigned)')] + [(user.id, user.username) for user in users]
+
     if form.validate_on_submit():
+        user_id = form.assigned_user.data if form.assigned_user.data != 0 else None
         task = Task(
             title=form.title.data,
             description=form.description.data,
             status=form.status.data,
-            user_id=current_user.id
+            user_id=user_id
         )
         db.session.add(task)
         db.session.commit()
+        flash('Task created.')
         return redirect(url_for('main.dashboard'))
+
     return render_template('task_form.html', form=form, task=None)
 
 @main.route('/task/edit/<int:id>', methods=['GET', 'POST'])

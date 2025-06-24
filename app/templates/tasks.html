@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
-<h2>Your Tasks</h2>
-<table border="1">
+<h2>Project Tasks</h2>
+<table border="1" class="tasks-table">
     <tr>
         <th>Title</th><th>Description</th><th>Status</th><th>Actions</th>
     </tr>
@@ -10,6 +10,7 @@
         <td>{{ task.title }}</td>
         <td>{{ task.description }}</td>
         <td>{{ task.status }}</td>
+        <td>{{ task.user.username if task.user else 'General' }}</td>
         <td>
             <a href="{{ url_for('main.edit_task', id=task.id) }}">Edit</a>
             {% if current_user.role == 'admin' %}
