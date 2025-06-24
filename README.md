@@ -1,2 +1,13 @@
-# eCommission
-Personal project for electricians to commission our projects. This is originally for coursework, but could be used by the company.
+## Features
+- Register/Login
+- Role-based access (Admin/User)
+- Task CRUD (Admin: Full, User: CRU)
+
+## Setup
+```bash
+git clone <repo>
+cd clickup_clone
+python -m venv venv
+source venv/bin/activate  # or .\venv\Scripts\activate
+pip install -r requirements.txt
+flask run

@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>{{ task.title if task else 'New Task' }}</h2>
+<form method="POST">
+    {{ form.hidden_tag() }}
+    <p>{{ form.title.label }}<br>{{ form.title(size=40) }}</p>
+    <p>{{ form.description.label }}<br>{{ form.description(cols=40, rows=5) }}</p>
+    <p>{{ form.status.label }}<br>{{ form.status() }}</p>
+    <p>{{ form.submit() }}</p>
+</form>
+{% endblock %}

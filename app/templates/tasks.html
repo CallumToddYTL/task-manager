@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Your Tasks</h2>
+<table border="1">
+    <tr>
+        <th>Title</th><th>Description</th><th>Status</th><th>Actions</th>
+    </tr>
+    {% for task in tasks %}
+    <tr>
+        <td>{{ task.title }}</td>
+        <td>{{ task.description }}</td>
+        <td>{{ task.status }}</td>
+        <td>
+            <a href="{{ url_for('main.edit_task', id=task.id) }}">Edit</a>
+            {% if current_user.role == 'admin' %}
+                | <a href="{{ url_for('main.delete_task', id=task.id) }}">Delete</a>
+            {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
