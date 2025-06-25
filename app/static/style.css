@@ -142,3 +142,20 @@ input[type="submit"]:hover {
 .tasks-table a:hover {
     text-decoration: underline;
 }
+
+.action-link-button {
+    background: none;
+    border: none;
+    color: #007bff;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 1em;
+    font-family: inherit;
+    padding: 0;
+    margin-left: 8px;
+    font-weight: bold;
+}
+
+.action-link-button:hover {
+    text-decoration: underline;
+}

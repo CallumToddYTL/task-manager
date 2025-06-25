@@ -1,9 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
 <h2>Project Tasks</h2>
-<table border="1" class="tasks-table">
+<table class="tasks-table">
     <tr>
-        <th>Title</th><th>Description</th><th>Status</th><th>Actions</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Status</th>
+        <th>Assigned User</th>
+        <th>Actions</th>
     </tr>
     {% for task in tasks %}
     <tr>
@@ -14,7 +18,10 @@
         <td>
             <a href="{{ url_for('main.edit_task', id=task.id) }}">Edit</a>
             {% if current_user.role == 'admin' %}
-                | <a href="{{ url_for('main.delete_task', id=task.id) }}">Delete</a>
+                <form method="POST" action="{{ url_for('main.delete_task', id=task.id) }}" style="display:inline;">
+                    {{ delete_form.hidden_tag() }}
+                    <button type="submit" class="action-link-button" onclick="return confirm('Delete this task?')">Delete</button>
+                </form>
             {% endif %}
         </td>
     </tr>

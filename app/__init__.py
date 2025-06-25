@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from .models import db, User
 from config import Config
+from flask_migrate import Migrate
 
 # Flask extensions
 login_manager = LoginManager()
@@ -25,6 +26,8 @@ def create_app():
 
     app.register_blueprint(auth_blueprint)
     app.register_blueprint(main_blueprint)
+
+    migrate = Migrate(app, db)
 
     return app
 

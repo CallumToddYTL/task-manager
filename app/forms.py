@@ -28,3 +28,6 @@ class TaskForm(FlaskForm):
     status = SelectField('Status', choices=[('Not Started', 'Not Started'), ('In Progress', 'In Progress'), ('Completed', 'Completed')])
     assigned_user = SelectField('Assign to User (optional)', coerce=int, validators=[Optional()])
     submit = SubmitField('Save Task')
+
+class DeleteForm(FlaskForm):
+    submit = SubmitField('Delete Task')
