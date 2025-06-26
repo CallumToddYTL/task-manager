@@ -5,7 +5,7 @@
 
 ## Setup
 ```bash
-git clone <repo>
+git clone [<repo>](https://github.com/CallumToddYTL/task-manager.git)
 cd clickup_clone
 python -m venv venv
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
