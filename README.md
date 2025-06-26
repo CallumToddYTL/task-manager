@@ -3,9 +3,13 @@
 - Role-based access (Admin/User)
 - Task CRUD (Admin: Full, User: CRU)
 
-## Setup
+## Running Instance
+Instance is ran on AWS, using EC2.
+http://13.51.150.160:5000
+
+## Local Setup
 ```bash
-git clone <repo>
+git clone [<repo>](https://github.com/CallumToddYTL/task-manager.git)
 cd clickup_clone
 python -m venv venv
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
