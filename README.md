@@ -1,5 +1,6 @@
 ## Features
-- Register/Login
+- Secure Registering with strong password recommendation
+- Login
 - Role-based access (Admin/User)
 - Task CRUD (Admin: Full, User: CRU)
 
