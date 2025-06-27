@@ -48,6 +48,15 @@ pip install -r requirements.txt
 flask run
 ```
 
+## Development Approach (Agile)
+
+This project followed an Agile development methodology using short sprints and user stories. Progress and task tracking were managed in ClickUp. Example user stories included:
+
+- "As a user, I want to log in securely so that I can view my tasks"
+- "As an admin, I want to delete any user's task to maintain task hygiene"
+
+Regular iterations and peer feedback were used to refine the UI and logic.
+
 ## Known Issues
 
 - No email verification yet
